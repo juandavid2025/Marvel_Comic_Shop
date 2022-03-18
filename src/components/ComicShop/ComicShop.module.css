@@ -1,0 +1,13 @@
+.comicShop_section {
+  padding: 5.2rem 0;
+  /* background-color: aquamarine; */
+}
+
+.comic_shop_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* background-color: #888; */
+  gap: 1%;
+  text-align: center;
+  padding-bottom: 10rem;
+}
