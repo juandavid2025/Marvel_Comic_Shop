@@ -36,6 +36,7 @@ const cartSlice = createSlice({
         } else {
           state.cartAmount--;
           state.cart.splice(comicIndexInCart, 1);
+          console.log(state.cart[0]);
         }
       } else {
         console.log("Sorry 🎅");
@@ -43,7 +44,10 @@ const cartSlice = createSlice({
     },
     setCart(state, action) {
       state.cart = action.payload;
-      state.cartAmount = action.payload.length;
+      state.cartAmount = action.payload.reduce(
+        (total, shopItem) => total + shopItem.amount,
+        0
+      );
     },
   },
 });

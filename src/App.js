@@ -14,22 +14,18 @@ function App() {
   const cartItems = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
-    if (cartItems.length === 0) {
-      let savedCartState = localStorage.getItem("cartState");
+    let savedCartState = localStorage.getItem("cartState");
 
-      if (savedCartState) {
-        console.log(`there is state`);
-        dispatch(setComicSavedCart(JSON.parse(savedCartState)));
-      } else {
-        console.log(`there is not state`);
-      }
+    if (savedCartState) {
+      console.log(`there is state`);
+      dispatch(setComicSavedCart(JSON.parse(savedCartState)));
+    } else {
+      console.log(`there is not state`);
     }
   }, [dispatch]);
 
   useEffect(() => {
-    if (cartItems.length > 0) {
-      localStorage.setItem("cartState", JSON.stringify(cartItems));
-    }
+    localStorage.setItem("cartState", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (

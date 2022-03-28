@@ -18,7 +18,11 @@ const ComicDetail = (props) => {
     <section className={classes.comicDetail_section}>
       <Container>
         <div className={classes.comic_detail_box}>
-          <img src={comic.imagePath} className={classes.comicImg} />
+          <img
+            src={comic.imagePath}
+            alt="Marvel Comic"
+            className={classes.comicImg}
+          />
           <div className={classes.comicInfo}>
             <h2 className={[`${classes.comic_detail} ${classes.comic_title}`]}>
               {comic.title}

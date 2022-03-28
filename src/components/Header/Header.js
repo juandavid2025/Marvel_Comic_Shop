@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   const cartComicAmount = useSelector((state) => state.cart.cartAmount);
   const [doBump, setDoBump] = useState(false);
+  const [stickyNav, setStikyNav] = useState(false);
 
   useEffect(() => {
     if (cartComicAmount === 0) {
@@ -23,8 +24,18 @@ const Header = () => {
     };
   }, [cartComicAmount]);
 
+  const headerSticky = (window) => {
+    let windowHeight = window.target.scrollingElement.scrollTop;
+    //console.log(windowHeight);
+    setStikyNav(windowHeight > 80);
+  };
+
+  window.addEventListener("scroll", headerSticky);
+
   return (
-    <header className={classes.header}>
+    <header
+      className={[`${classes.header} ${stickyNav ? `${classes.sticky}` : ""}`]}
+    >
       <img className={classes.logo} alt="Marvel logo" src={marvelLogo} />
       <nav>
         <ul className={classes.nav_list}>
