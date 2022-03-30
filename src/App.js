@@ -17,7 +17,6 @@ function App() {
     let savedCartState = localStorage.getItem("cartState");
 
     if (savedCartState) {
-      console.log(`there is state`);
       dispatch(setComicSavedCart(JSON.parse(savedCartState)));
     } else {
       console.log(`there is not state`);
