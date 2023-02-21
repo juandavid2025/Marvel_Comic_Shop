@@ -52,7 +52,7 @@ export const fetchComics = () => {
 };
 
 export const searchComicById = (id) => {
-  const url = `https://gateway.marvel.com:443/v1/public/comics/${id}?apikey=06429c24807d8e4edcfd03ade9caa5fc`;
+  const url = `https://gateway.marvel.com:443/v1/public/comics/${id}?ts=1&apikey=c0e7c1f1d7331dbbaa2aa60e6f00e520&hash=c55b4a5edeb7cc29add5f799dc5a9be3`;
 
   return async (dispatch) => {
     // -----Check how to improve this part-----
