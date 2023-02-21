@@ -26,9 +26,10 @@ const comicsSlice = createSlice({
   },
 });
 
+// API key original 06429c24807d8e4edcfd03ade9caa5fc
 export const fetchComics = () => {
   const url =
-    "https://gateway.marvel.com:443/v1/public/comics?apikey=06429c24807d8e4edcfd03ade9caa5fc";
+    "https://gateway.marvel.com:443/v1/public/comics?ts=1&apikey=c0e7c1f1d7331dbbaa2aa60e6f00e520&hash=c55b4a5edeb7cc29add5f799dc5a9be3";
 
   return async (dispatch) => {
     try {
