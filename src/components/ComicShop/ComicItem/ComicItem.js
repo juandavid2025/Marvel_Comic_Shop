@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { addComicToCart } from "../../../store/cart";
 import classes from "./ComicItem.module.css";
 
-const ComicItem = (props) => {
+const ComicItem = props => {
   const dispatch = useDispatch();
 
   const comicItem = props.comic;
@@ -27,7 +27,7 @@ const ComicItem = (props) => {
 
   return (
     <div className={classes.comic}>
-      <NavLink to={`/comics/${comicItem.id}`}>
+      <NavLink to={`${comicItem.id}`}>
         <img
           className={[`${classes.comic_img} ${extraImgClass}`]}
           alt="Marvel Comic"

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const cartComicAmount = useSelector((state) => state.cart.cartAmount);
+  const cartComicAmount = useSelector(state => state.cart.cartAmount);
   const [doBump, setDoBump] = useState(false);
   const [stickyNav, setStikyNav] = useState(false);
 
@@ -24,7 +24,7 @@ const Header = () => {
     };
   }, [cartComicAmount]);
 
-  const headerSticky = (window) => {
+  const headerSticky = window => {
     let windowHeight = window.target.scrollingElement.scrollTop;
     //console.log(windowHeight);
     setStikyNav(windowHeight > 80);
@@ -40,17 +40,22 @@ const Header = () => {
       <nav>
         <ul className={classes.nav_list}>
           <li>
-            <NavLink to="/comics" className={classes.nav_link}>
+            <NavLink
+              to="/Marvel_Comic_Shop/comics"
+              className={({ isActive }) =>
+                isActive ? `${classes.nav_link} .active` : `${classes.nav_link}`
+              }
+            >
               Comics
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/cart"
+              to="/Marvel_Comic_Shop/cart"
               className={[
                 `${classes.nav_link} ${classes.nav_cart} ${
                   doBump && classes.bump
-                }`,
+                }`
               ]}
             >
               <div className={classes.nav_link_cart}>

@@ -4,7 +4,7 @@ const initialState = {
   comics: [],
   searchComic: null,
   isLoading: false,
-  error: null,
+  error: null
 };
 
 const comicsSlice = createSlice({
@@ -22,8 +22,8 @@ const comicsSlice = createSlice({
     },
     setError(state, action) {
       state.error = action.payload;
-    },
-  },
+    }
+  }
 });
 
 // API key original 06429c24807d8e4edcfd03ade9caa5fc
@@ -31,11 +31,11 @@ export const fetchComics = () => {
   const url =
     "https://gateway.marvel.com:443/v1/public/comics?ts=1&apikey=c0e7c1f1d7331dbbaa2aa60e6f00e520&hash=c55b4a5edeb7cc29add5f799dc5a9be3";
 
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const response = await fetch(url);
 
-      console.log(response);
+      // console.log(response);
 
       if (!response.ok) {
         throw new Error("comics request failed");
@@ -51,10 +51,10 @@ export const fetchComics = () => {
   };
 };
 
-export const searchComicById = (id) => {
+export const searchComicById = id => {
   const url = `https://gateway.marvel.com:443/v1/public/comics/${id}?ts=1&apikey=c0e7c1f1d7331dbbaa2aa60e6f00e520&hash=c55b4a5edeb7cc29add5f799dc5a9be3`;
 
-  return async (dispatch) => {
+  return async dispatch => {
     // -----Check how to improve this part-----
     dispatch(comicsActions.setSearchComic(null));
     try {
@@ -88,8 +88,8 @@ export const searchComicById = (id) => {
   };
 };
 
-const formatComicData = (comicApiData) => {
-  return comicApiData.data.results.map((item) => {
+const formatComicData = comicApiData => {
+  return comicApiData.data.results.map(item => {
     return {
       id: item.id,
       title: item.title,
@@ -98,15 +98,15 @@ const formatComicData = (comicApiData) => {
       creators: getCreators(item.creators, 2),
       saleDate: getFormattedDate(item.dates[0].date),
       focDate: getFormattedDate(item.dates[1].date),
-      price: calcAveragePrice(item.prices),
+      price: calcAveragePrice(item.prices)
     };
   });
 };
 
-const calcAveragePrice = (prices) => {
+const calcAveragePrice = prices => {
   let price = 0;
 
-  prices.forEach((element) => {
+  prices.forEach(element => {
     price += element.price;
   });
 
@@ -117,17 +117,17 @@ const getCreators = (creatorsList, max) => {
   let creators = "------";
   if (creatorsList.items.length > max) {
     creators = creatorsList.items
-      .map((creator) => creator.name)
+      .map(creator => creator.name)
       .slice(0, 2)
       .join(", ");
   } else if (creatorsList.items.length > 0) {
-    creators = creatorsList.items.map((creator) => creator.name).join(", ");
+    creators = creatorsList.items.map(creator => creator.name).join(", ");
   }
 
   return creators;
 };
 
-const generateImgPath = (imgList) =>
+const generateImgPath = imgList =>
   imgList.length > 0
     ? `${imgList[0].path}.${imgList[0].extension}`
     : `https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png`;

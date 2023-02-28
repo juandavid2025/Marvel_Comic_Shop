@@ -8,7 +8,7 @@ import { searchComicById } from "../store/comics";
 const ComicDetailPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  const searchComic = useSelector((state) => state.comics.searchComic);
+  const searchComic = useSelector(state => state.comics.searchComic);
 
   useEffect(() => {
     dispatch(searchComicById(params.comicId));

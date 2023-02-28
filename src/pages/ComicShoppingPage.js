@@ -6,9 +6,7 @@ import { fetchComics } from "../store/comics";
 
 const ComicShoppingPage = () => {
   const dispatch = useDispatch();
-  const comics = useSelector((state) => state.comics.comics);
-
-  console.log(comics);
+  const comics = useSelector(state => state.comics.comics);
 
   useEffect(() => {
     dispatch(fetchComics());
