@@ -4,11 +4,9 @@
 }
 
 .shopping_box {
-  margin: 0 0%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  /* background-color: violet; */
 
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   padding: 1rem;
@@ -16,6 +14,12 @@
   align-items: center;
 }
 
+.cart_icon {
+  font-size: 8rem;
+  color: #f1454b;
+}
+
+/* 
 .pay_btn {
   border: none;
   font-weight: 400;
@@ -36,10 +40,4 @@
 .pay_btn:hover,
 .pay_btn:active {
   background-color: #ee171f;
-}
-
-.icon_container ion-icon {
-  height: 5rem;
-  width: 5rem;
-  color: #f1454b;
-}
+} */

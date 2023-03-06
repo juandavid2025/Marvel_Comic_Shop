@@ -1,9 +1,10 @@
-import Header from "../components/Header/Header";
+import React from "react";
+import MainNavigation from "../components/MainNavigation/MainNavigation";
 
 const ErrorPage = () => {
   return (
     <>
-      <Header />
+      <MainNavigation />
       <main>
         <h1>An error Occurred</h1>
         <p>Please go back!</p>

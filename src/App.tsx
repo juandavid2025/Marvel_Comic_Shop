@@ -1,21 +1,18 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import {
-  Route,
-  Navigate,
-  Routes,
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setComicSavedCart } from "./store/cart";
 
 import HomePage from "./pages/HomePage";
 import ComicShoppingPage from "./pages/ComicShoppingPage";
 import ComicDetailPage from "./pages/ComicDetailPage";
 import ShoppingCartPage from "./pages/ShoppingCartPage";
-import { useDispatch, useSelector } from "react-redux";
-import { setComicSavedCart } from "./store/cart";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
+
+import { AppDispatch, StoreState } from "./store";
+import { CartComic } from "./models/cartComic";
 
 const router = createBrowserRouter([
   {
@@ -35,21 +32,21 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cart.cart);
+  const dispatch: AppDispatch = useDispatch();
+  const cartItems = useSelector<StoreState, CartComic[]>(
+    state => state.cart.cart
+  );
 
   useEffect(() => {
-    let savedCartState = localStorage.getItem("cartState");
+    const savedCartState = localStorage.getItem("cartComicState");
 
     if (savedCartState) {
       dispatch(setComicSavedCart(JSON.parse(savedCartState)));
-    } else {
-      console.log(`there is not state`);
     }
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem("cartState", JSON.stringify(cartItems));
+    localStorage.setItem("cartComicState", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return <RouterProvider router={router} />;

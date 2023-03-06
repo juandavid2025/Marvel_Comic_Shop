@@ -1,14 +1,15 @@
-.spinner {
-  width: 10rem;
-  height: 10rem;
-  position: relative;
-  margin: 10rem auto;
+.spinner-container {
+  width: 100vw;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.spinner img {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+.spinner-container img {
+  height: 15rem;
+  width: auto;
 
   animation: spinnerOne 1.2s linear infinite;
 }
