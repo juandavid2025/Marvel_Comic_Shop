@@ -6,15 +6,13 @@
   justify-content: space-between;
   align-items: center;
 
-  /* background-color: #fdf2e9; */
-
-  height: 5.2rem;
-  padding: 0 3rem;
-
-  transition: all 0.3ms;
+  height: 9.6rem;
+  padding: 0 5.2rem;
+  position: relative;
+  /* transition: all 0.3ms; */
 }
 
-.sticky {
+/* .sticky {
   position: fixed;
   top: 0;
   left: 0;
@@ -22,74 +20,70 @@
   background-color: rgba(0, 0, 0, 0.5);
 
   color: #fff !important;
-}
+} */
 
 .logo {
-  height: 3rem;
+  height: 3.6rem;
 }
 
 /** NAV **/
-.nav_list {
+.main-nav-list {
   list-style: none;
   display: flex;
-  gap: 3.2rem;
   align-items: center;
+  gap: 5.2rem;
 }
 
-.nav_link:link,
-.nav_link:visited {
+.main-nav-link:link,
+.main-nav-link:visited {
   display: inline-block;
   text-decoration: none;
-  color: #333;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 2.4rem;
 
   transition: all 0.3s;
 }
 
-.nav_link:hover,
-.nav_link:active,
-.link_active {
+.main-nav-link:hover,
+.main-nav-link:active {
   color: #ee171f;
 }
 
-.img_box {
+.main-nav-link-active {
+  color: gold !important;
+}
+
+.cart-nav-btn:link,
+.cart-nav-btn:visited {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  gap: 0.6rem;
 
-.img_box p {
-  font-size: 0.9rem;
-  transform: translate(-340%, -35%);
-}
-
-.nav_link.nav_cart:link,
-.nav_link.nav_cart:visited {
-  padding: 0.5rem 1.5rem;
-  border-radius: 9px;
-  color: #fff;
+  text-decoration: none;
   background-color: #f1454b;
+  color: #fff;
+  padding: 0.8rem 2.4rem;
+  border-radius: 10px;
 }
 
-.nav_link.nav_cart:hover,
-.nav_link.nav_cart:active {
+.cart-nav-btn:hover,
+.cart-nav-btn:active {
   background-color: #ee171f;
 }
 
-.nav_link_cart {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.cart-nav-btn-active {
+  background-color: gold !important;
 }
 
-.nav_cart ion-icon {
-  height: 3.2rem;
-  width: 3.2rem;
+.cart-btn-icon {
+  display: block;
+  font-size: 4rem;
 }
 
-.nav_cart p {
-  display: inline-block;
+.cart-btn-amount {
+  display: block;
+  font-size: 2rem;
 }
 
 .bump {

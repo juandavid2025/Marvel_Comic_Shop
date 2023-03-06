@@ -3,8 +3,12 @@ import { useSelector } from "react-redux";
 import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
 import NoItemsCart from "../components/UI/NoItems/NoItemsCart";
 
+import { StoreState } from "../store";
+
 const ShoppingCartPage = () => {
-  const cartItemsAmount = useSelector((state) => state.cart.cartAmount);
+  const cartItemsAmount = useSelector<StoreState, number>(
+    state => state.cart.cartAmount
+  );
 
   return (
     <Fragment>

@@ -1,0 +1,7 @@
+.container {
+  max-width: 125rem;
+  margin: 0 auto;
+  /* padding: 0 5%; */
+}
+
+/* (1250px - 60)/4 -> 297.5 */
